@@ -1,0 +1,116 @@
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"><b>Modifier Utilisateur</b></p>
+
+
+<form [formGroup]="modifCmpt">
+
+  <div class="input-group mb-3">
+    <input type="text" class="form-control"[(ngModel)]="currentuser.username" placeholder="pseudo" formControlName="username" />
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-user"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="currentuser.nom"placeholder="Nom" formControlName="nom" />
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-user"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control"[(ngModel)]="currentuser.prenom" placeholder="Prénom" formControlName="prenom" />
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-user"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" min="10000000" max="99999999"[(ngModel)]="currentuser.cin" class="form-control" placeholder="Numéro CIN" formControlName="cin" />
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-address-card"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="currentuser.adresse"placeholder="Adresse" formControlName="adresse" />
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-home"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <input type="email" class="form-control"[(ngModel)]="currentuser.email" placeholder="Email"  formControlName="email"/>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-envelope"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password"/>
+    <div class="input-group-append">
+      <div class="input-group-text">
+        <span class="fas fa-lock"></span>
+      </div>
+    </div>
+  </div>
+  <div class="input-group mb-3">
+    <select class="form-control" formControlName="Bureau" [(ngModel)]="currentuser.Bureau">
+      <option value="">Choisir Bureau</option>
+      <option *ngFor="let bureau of Bureaux" [ngValue]="bureau" (change)="changeregion($event)">{{bureau}}
+      </option>
+   </select>
+   <div class="input-group-text">
+    <span class="fas fa-user"></span>
+  </div>
+   </div>
+   <div class="input-group mb-3">
+    <select class="form-control" formControlName="region" [(ngModel)]="currentuser.region" (ngModelChange)="onChange($event)" >
+      <option value="">Choisir Région</option>
+      <option *ngFor="let region of regions" [ngValue]="region" >{{region}}
+      </option>
+   </select>
+
+    <div class="input-group-text">
+    <span class="fas fa-user"></span>
+  </div>
+   </div>
+
+   <div class="input-group mb-3" *ngIf="currentuser.Bureau ==='Agence Régionale'" >
+    <select class="form-control"[(ngModel)]="idbur.title" formControlName="idbur"  >
+      <option value="">Choisir Agence </option>
+      <option *ngFor="let id of idbur" [ngValue]="id.title"  >{{id.title}}
+      </option>
+   </select>
+   <div class="input-group-text">
+    <span class="fas fa-building"></span>
+  </div>
+   </div>
+
+    <div class="row">
+      <div class="col-8">
+        <div class="custom-control custom-checkbox">
+
+        </div>
+      </div>
+      <!-- /.col -->
+      <div class="col-4">
+        <button type="submit" (click)="updateUser()" [disabled]="!modifCmpt.valid"  class="btn btn-primary btn-block btn-flat">
+          Modifier
+        </button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
+
+</div>
+</div>

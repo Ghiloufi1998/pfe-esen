@@ -1,0 +1,31 @@
+<div>
+  <form [formGroup]="registerForm">
+<div class="input-group">
+    <select class="form-control" formControlName="region" [(ngModel)]="selectedregion" (ngModelChange)="onChange($event)" >
+      <option value="">Choisir Région</option>
+      <option *ngFor="let region of regions" [ngValue]="region" >{{region}}
+      </option>
+   </select>
+
+</div>
+</form>
+<div> 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nom D'agence</th>
+        <th scope="col">Numéro téléphone</th>
+        <th scope="col">email</th>
+        <th scope="col">Adresse</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{listeag.title}}</td>
+        <td>{{listeag.tel}}</td>
+        <td>{{listeag.email}}</td>
+        <td>{{listeag.adresse}}</td>
+      </tr>
+      </tbody>
+      </table>
+    </div>

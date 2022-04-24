@@ -1,0 +1,77 @@
+
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Ajouter une Agence</p>
+
+      <form [formGroup]="addAgFrom">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Nom d'agence" formControlName="title" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group mb-3">
+          <select class="form-control" formControlName="responsable">
+            <option value="">Choisir Responsable</option>
+            <option *ngFor="let responsable of listeresponsable" [ngValue]="responsable.nom" (change)="changeMarque($event)">{{responsable.nom}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Adresse" formControlName="adresse" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="E-mail" formControlName="email" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="number" class="form-control" placeholder="Numéro téléphone fixe" formControlName="tel" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" [(ngModel)]="region" placeholder="" formControlName="region" disabled />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="custom-control custom-checkbox">
+
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit"  (click)="AddAg()" [disabled]="!addAgFrom.valid"class="btn btn-primary btn-block btn-flat">
+              Ajouter
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+    </div>
+  </div>

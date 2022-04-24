@@ -1,0 +1,83 @@
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"><b>Modifier Matériel</b></p>
+
+
+<form [formGroup]="modifMat">
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Nom du matériel" formControlName="title" [(ngModel)]="currentmat.title" />
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <textarea type="text" class="form-control" placeholder="Caracteristiques" formControlName="caracteristiques"  [(ngModel)]="currentmat.caracteristiques"></textarea>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Numéro de série" formControlName="serial"  [(ngModel)]="currentmat.serial"/>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <select class="form-control" formControlName="type" [(ngModel)]="currentmat.type" >
+        <option value="">Choisir Type</option>
+        <option *ngFor="let type of types" [ngValue]="type" >{{type}}
+        </option>
+     </select>
+     <div class="input-group-text">
+      <span class="fas fa-user"></span>
+    </div>
+     </div>
+
+     <div class="input-group mb-3">
+      <select class="form-control" formControlName="marque"[(ngModel)]="currentmat.marque">
+        <option value="">Choisir Marque</option>
+        <option *ngFor="let marque of marques" [ngValue]="marque" >{{marque}}
+        </option>
+     </select>
+     <div class="input-group-text">
+      <span class="fas fa-user"></span>
+    </div>
+     </div>
+     <div class="input-group mb-3">
+      <input  type="text" class="form-control" [(ngModel)]="Bureau" placeholder="" formControlName="bureau" disabled/>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+      </div>
+
+
+    <div class="row">
+      <div class="col-8">
+        <div class="custom-control custom-checkbox">
+
+        </div>
+      </div>
+      <!-- /.col -->
+      <div class="col-4">
+        <button type="submit" (click)="updateMat()" [disabled]="!modifMat.valid"  class="btn btn-primary btn-block btn-flat">
+          Modifier
+        </button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
+
+</div>
+</div>

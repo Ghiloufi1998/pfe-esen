@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header">
+    Liste Des Agences
+  </div>
+  <div class="card-body">
+
+    <p *ngIf="listeag.length <= 0" class="no-data text-center">Pas d'agences à afficher</p>
+
+    <!-- Employee list -->
+    <table class="table table-bordered" >
+      <thead class="table-success">
+        <tr>
+
+          <th scope="col">Nom d'agence</th>
+          <th scope="col">Responsable</th>
+          <th scope="col">Region</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Numéro téléphone fixe</th>
+
+
+          <th scope="col center">Opérations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ag of listeag; let i = index" [class.active]="i == currentIndex">
+
+          <td>{{ag.title}}</td>
+          <td>{{ag.responsable}}</td>
+          <td>{{ag.region}}</td>
+          <td>{{ag.email}}</td>
+          <td>{{ag.adresse}}</td>
+          <td>{{ag.tel}}</td>
+          <td class="text-center edit-block" >
+            <span class="edit" [routerLink]="['/Modifagadmin/', ag.id]">
+              <button type="button" class="btn btn-success btn-sm">Modifier</button>
+            </span>
+
+            <span class="delete" (click)="deleteAg(ag, i)">
+              <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+            </span>
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+  <!-- No data message -->
+

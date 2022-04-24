@@ -1,0 +1,93 @@
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Ajouter Matériels</p>
+
+      <form [formGroup]="addmatFrom">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Nom du matériel" formControlName="title" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <textarea type="text" class="form-control" placeholder="Caractéristique du matériel" formControlName="caracteristiques"></textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Numéro de série" formControlName="serial" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <select class="form-control" formControlName="type">
+            <option value="">Choisir Type</option>
+            <option *ngFor="let type of types" [ngValue]="type" (change)="changeType($event)">{{type}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+
+         <div class="input-group mb-3">
+          <select class="form-control" formControlName="marque">
+            <option value="">Choisir Marque</option>
+            <option *ngFor="let marque of marques" [ngValue]="marque" (change)="changeMarque($event)">{{marque}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+         <div class="input-group mb-3">
+          <input [disabled] type="text" class="form-control" [(ngModel)]="Bureau" placeholder="" formControlName="bureau" disabled />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+
+
+         </div>
+         <div class="input-group mb-3">
+          <select class="form-control" formControlName="region">
+            <option value="">Choisir Région</option>
+            <option *ngFor="let region of regions" [ngValue]="region" (change)="changeMarque($event)">{{region}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+
+
+
+        <div class="row">
+          <div class="col-8">
+            <div class="custom-control custom-checkbox">
+
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit"  (click)="Addmat()"[disabled]="!addmatFrom.valid" class="btn btn-primary btn-block btn-flat">
+              Ajouter
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+    </div>
+  </div>

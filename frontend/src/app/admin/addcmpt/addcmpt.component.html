@@ -1,0 +1,133 @@
+<div class="center-div">
+<div class="col-sm-4">
+<div class="card">
+  <div class="card-body register-card-body">
+    <p class="login-box-msg">Ajouter un nouveau utilisateur</p>
+
+    <form [formGroup]="registerForm">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="pseudo" formControlName="username" />
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Nom" formControlName="nom" />
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Prénom" formControlName="prenom" />
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-user"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" min="10000000" max="99999999" class="form-control" placeholder="Numéro CIN" formControlName="cin" />
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-address-card"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Adresse" formControlName="adresse" />
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-home"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="email" class="form-control" placeholder="Email"  formControlName="email"/>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-envelope"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password"/>
+        <div class="input-group-append">
+          <div class="input-group-text">
+            <span class="fas fa-lock"></span>
+          </div>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <select class="form-control" formControlName="Bureau">
+          <option value="">Choisir Bureau</option>
+          <option *ngFor="let bureau of Bureaux" [ngValue]="bureau" >{{bureau}}
+          </option>
+       </select>
+       <div class="input-group-text">
+        <span class="fas fa-user"></span>
+      </div>
+       </div>
+       <div class="input-group mb-3">
+        <select class="form-control" formControlName="region" [(ngModel)]="selectedregion" (ngModelChange)="onChange($event)" >
+          <option value="">Choisir Région</option>
+          <option *ngFor="let region of regions" [ngValue]="region" >{{region}}
+          </option>
+       </select>
+
+        <div class="input-group-text">
+        <span class="fas fa-user"></span>
+      </div>
+       </div>
+
+
+      <div class="input-group mb-3">
+      <div>
+        <input id="roles" type="radio" value="gestr" name="roles" formControlName="roles" #gestr >
+        <label for="roles">Gestionnaire Agence Régionale : </label>
+     </div>
+     <pre> </pre>
+     <div>
+      <input id="roles1" type="radio" value="gestad" name="roles" formControlName="roles">
+      <label for="roles1">Gestionnaire Administration Régionale : </label>
+   </div>
+   <pre> </pre>
+   <div>
+    <input id="roles2" type="radio" value="gestac" name="roles" formControlName="roles">
+    <label for="roles2">Gestionnaire Administration Centrale : </label>
+ </div>
+ <div class="input-group mb-3" *ngIf="gestr.checked">
+  <select class="form-control" formControlName="idbur" [(ngModel)]="idbur.title" >
+    <option value="">Choisir Agence </option>
+    <option *ngFor="let id of idbur" [ngValue]="id.title">{{id.title}}
+    </option>
+ </select>
+ <div class="input-group-text">
+  <span class="fas fa-user"></span>
+</div>
+ </div>
+
+</div>
+
+
+      <div class="row">
+        <div class="col-8">
+          <div class="custom-control custom-checkbox">
+
+          </div>
+        </div>
+        <!-- /.col -->
+        <div class="col-4">
+          <button type="submit" (click)="SignUp()" [disabled]="!registerForm.valid" class="btn btn-primary btn-block btn-flat">
+            Ajouter
+          </button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+  </div>
+</div>

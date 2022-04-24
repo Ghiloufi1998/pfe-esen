@@ -1,0 +1,76 @@
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"><b>Modifier Fournisseurs</b></p>
+
+
+<form [formGroup]="modifFour">
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Nom de la réclamation" formControlName="title" [(ngModel)]="currentfour.title" />
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <textarea type="text" class="form-control" placeholder="Adresse du Fournisseur" formControlName="adresse" [(ngModel)]="currentfour.adresse"></textarea>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Matricule Fiscale" formControlName="matfisc"  [(ngModel)]="currentfour.matfisc"/>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="number" min="10000000" max="99999999" class="form-control" placeholder="Numéro téléphone" formControlName="tel"[(ngModel)]="currentfour.tel"/>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-address-card"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Email" formControlName="email"  [(ngModel)]="currentfour.email"/>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Responsable" formControlName="responsable"  [(ngModel)]="currentfour.responsable"/>
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-8">
+        <div class="custom-control custom-checkbox">
+
+        </div>
+      </div>
+      <!-- /.col -->
+      <div class="col-4">
+        <button type="submit" (click)="updateFour()" [disabled]="!modifFour.valid"  class="btn btn-primary btn-block btn-flat">
+          Modifier
+        </button>
+      </div>
+      <!-- /.col -->
+    </div>
+  </form>
+
+</div>
+</div>

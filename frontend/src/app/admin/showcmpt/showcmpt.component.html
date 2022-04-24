@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+
+    <p *ngIf="listecmpt.length <= 0" class="no-data text-center">Pas de compte à afficher</p>
+
+    <!-- Employee list -->
+    <table class="table table-bordered" >
+      <thead class="table-success">
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">Prénom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Numéro CIN</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Role</th>
+          <th scope="col">Bureau</th>
+          <th scope="col">Région</th>
+          <th scope="col">Agence</th>
+          <th scope="col center">Opérations</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let user of listecmpt; let i = index" [class.active]="i == currentIndex" [ngSwitch]="user.roles">
+
+          <td>{{user.nom}}</td>
+          <td>{{user.prenom}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.cin}}</td>
+          <td>{{user.adresse}}</td>
+          <td *ngSwitchCase="'5ee327ddc94bcc06744dfe94'">Gestionnaire Agence Régionale</td>
+          <td *ngSwitchCase="'5ee327ddc94bcc06744dfe96'">Gestionnaire Administration Centrale</td>
+          <td *ngSwitchCase="'5ee327ddc94bcc06744dfe95'">Gestionnaire Administration Régionale</td>
+          <td *ngSwitchCase="'5ee327ddc94bcc06744dfe97'">Administrateur</td>
+          <td>{{user.Bureau}}</td>
+          <td>{{user.region}}</td>
+          <td>{{user.idbur}}</td>
+
+          <td class="text-center edit-block" >
+            <span class="edit" [routerLink]="['/Modifcmptadmin/', user._id]">
+              <button type="button" class="btn btn-success btn-sm">Modifier</button>
+            </span>
+
+            <span class="delete" (click)="deleteUser(user, i)">
+              <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+            </span>
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+  <!-- No data message -->
+

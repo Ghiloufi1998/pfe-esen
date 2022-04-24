@@ -1,0 +1,61 @@
+<div class="card">
+  <div class="card-header">
+     Liste des Réclamations En cours
+  </div>
+  <div class="card-body">
+
+    <p *ngIf="listerec.length <= 0" class="no-data text-center">Pas de réclamtion en cours à afficher</p>
+
+    <!-- Employee list -->
+    <table class="table table-bordered" >
+      <thead class="table-success" >
+        <tr>
+
+          <th scope="col">Nom de réclamtion</th>
+          <th scope="col">Description</th>
+          <th scope="col">Bureau de réclamation</th>
+          <th scope="col">Matériels à réparer</th>
+          <th scope="col">Méthode de réprartion</th>
+          <th scope="col">Status Répraration</th>
+          <th scope="col">Status Rapport</th>
+          <th scope="col center">Opérations</th>
+        </tr>
+      </thead >
+      <tbody  >
+        <tr  *ngFor="let rec of listerec; let i = index" [class.active]="i == currentIndex">
+
+          <td>{{rec.title}}</td>
+          <td>{{rec.description}}</td>
+          <td>{{rec.bureau}}</td>
+          <td>{{rec.materiels}}</td>
+          <td>{{rec.methode}}</td>
+          <td>{{ rec.etat ? "Répraré" : "En cours de réparartion" }}</td>
+          <td>{{ rec.rap ? "Ajoutée au rapport" : "Non Ajoutée" }}</td>
+
+          <td class="text-center edit-block" >
+            <span class="edit" [routerLink]="['/Modifrecadmin/', rec.id]">
+              <button type="button" class="btn btn-success btn-sm">Modifier</button>
+            </span>
+            <span class="edit" (click)="updateRaptrue(rec, i)">
+              <button type="button" class="btn btn-success btn-sm">Ajouter au rapport</button>
+            </span>
+            <span class="edit" (click)="deleterec(rec, i)">
+              <button type="button" class="btn btn-danger btn-sm">Annuler Réparation</button>
+            </span>
+            <span class="delete" (click)="deleterec(rec, i)">
+              <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+            </span>
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+  <!-- No data message -->
+

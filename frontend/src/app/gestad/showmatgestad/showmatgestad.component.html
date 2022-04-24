@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-header">
+    Liste des matériels
+  </div>
+  <div class="card-body">
+
+    <p *ngIf="listemat.length <= 0" class="no-data text-center">Pas de matériels à afficher</p>
+
+    <!-- Employee list -->
+    <table class="table table-bordered" >
+      <thead class="table-success">
+        <tr>
+
+          <th scope="col">Nom du matériel</th>
+          <th scope="col">Caractéristiques</th>
+          <th scope="col">Marque</th>
+          <th scope="col">Numério de série</th>
+          <th scope="col">Type de matériel</th>
+          <th scope="col">Bureau d'origine</th>
+          <th scope="col">Région</th>
+          <th scope="col">État</th>
+          <th scope="col center">Opérations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mat of listemat; let i = index" [class.active]="i == currentIndex">
+
+          <td>{{mat.title}}</td>
+          <td>{{mat.caracteristiques}}</td>
+          <td>{{mat.marque}}</td>
+          <td>{{mat.serial}}</td>
+          <td>{{mat.type}}</td>
+          <td>{{mat.bureau}}</td>
+          <td>{{mat.region}}</td>
+          <td>{{mat.active ? "En Service" : "Hors Service"}}</td>
+          <td class="text-center edit-block" >
+            <span *ngIf="!mat.active"class="edit3" (click)="updateActivetrue(mat, i)">
+              <button type="button" class="btn btn-success btn-sm">Rendre En Service</button>
+            </span>
+            <span *ngIf="mat.active"class="edit3" (click)="updateActivefalse(mat, i)">
+              <button type="button" class="btn btn-danger btn-sm">Rendre Hors Service</button>
+            </span>
+            <span class="edit" [routerLink]="['/Modifmatgestad/', mat.id]">
+              <button type="button" class="btn btn-success btn-sm">Modifier</button>
+            </span>
+
+            <span class="delete" (click)="deleteMat(mat, i)">
+              <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+            </span>
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+  <!-- No data message -->
+

@@ -1,0 +1,87 @@
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Modifier Matériels</p>
+
+      <form [formGroup]="ModifmatForm">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Nom du matériel" [(ngModel)]="currentmat.title" formControlName="title" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <textarea type="text" class="form-control" placeholder="Caractéristique du matériel" [(ngModel)]="currentmat.caracteristiques" formControlName="caracteristiques"></textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Numéro de série" [(ngModel)]="currentmat.serial" formControlName="serial" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <select class="form-control" formControlName="type">
+            <option value="">Choisir Type</option>
+            <option *ngFor="let type of types" [ngValue]="currentmat.type" (change)="changeType($event)">{{type}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+
+         <div class="input-group mb-3">
+          <select class="form-control" formControlName="marque">
+            <option value="">Choisir Marque</option>
+            <option *ngFor="let marque of marques" [ngValue]="currentmat.marque" (change)="changeMarque($event)">{{marque}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+         <div class="input-group mb-3">
+          <input [disabled] type="text" class="form-control" [(ngModel)]="Bureau" placeholder="" formControlName="bureau" disabled />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+
+
+         </div>
+         <div class="input-group mb-3">
+          <input [disabled] type="text" class="form-control" [(ngModel)]="region" placeholder="" formControlName="region" disabled />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+         </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="custom-control custom-checkbox">
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit"  (click)="Modif()"[disabled]="!ModifmatForm.valid" class="btn btn-primary btn-block btn-flat">
+              Modifier
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+    </div>
+  </div>

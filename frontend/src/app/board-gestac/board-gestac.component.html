@@ -1,0 +1,39 @@
+
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+       <b>Gérer Réclamations des administrations régionales</b>
+      </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-success btn-lg btn-block"[routerLink]="['/Showlistrecgestac']">Consulter Liste Réclamations du rapport</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        <b>Gérer Le Processus de réparation de chaque réclamation</b>
+       </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block"[routerLink]="['/Showlistrecnowgestac']">Consulter Liste Réclamations en cours</button>
+        <button type="button" class="btn btn-success btn-lg btn-block"[routerLink]="['/Showlistrecprocgestac']">Consulter Liste Réclamations</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        <b>Gérer Fournisseurs</b>
+       </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block"[routerLink]="['/Addfourgestac']">Ajouter Fournisseur</button>
+        <button type="button" class="btn btn-success btn-lg btn-block"[routerLink]="['/Showfourgestac']">Consulter Liste Fournisseurs</button>
+
+      </div>
+    </div>
+  </div>
+</div>

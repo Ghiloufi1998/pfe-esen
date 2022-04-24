@@ -1,0 +1,79 @@
+<div class="center-div">
+  <div class="col-sm-4">
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg">Ajouter une Réclamation</p>
+
+      <form [formGroup]="addRecFrom">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Nom de réclamation" formControlName="title" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <textarea type="text" class="form-control" placeholder="Description" formControlName="description"></textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input [disabled] type="text" class="form-control" [(ngModel)]="Bureau" placeholder="" formControlName="bureau" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+         </div>
+        <div class="input-group mb-3">
+          <textarea class="form-control" placeholder="Matériels" formControlName="materiels" > </textarea>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <select class="form-control" formControlName="methode">
+            <option value="">Choisir Méthode de Réparation</option>
+            <option *ngFor="let methode of methodes" [ngValue]="methode" (change)="changemethode($event)">{{methode}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+         <div class="input-group mb-3">
+          <select class="form-control" formControlName="region">
+            <option value="">Choisir Région</option>
+            <option *ngFor="let region of regions" [ngValue]="region" (change)="changeregion($event)">{{region}}
+            </option>
+         </select>
+         <div class="input-group-text">
+          <span class="fas fa-user"></span>
+        </div>
+         </div>
+
+
+        <div class="row">
+          <div class="col-8">
+            <div class="custom-control custom-checkbox">
+
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit"  (click)="Addrec()" class="btn btn-primary btn-block btn-flat">
+              Ajouter
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+    </div>
+  </div>

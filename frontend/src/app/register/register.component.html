@@ -1,0 +1,97 @@
+<div class="register-box">
+  <div class="register-logo">
+    <a href="../../index2.html"><b>Admin</b>LTE</a>
+  </div>
+
+  <div class="card">
+    <div class="card-body register-card-body">
+      <p class="login-box-msg"></p>
+
+      <form [formGroup]="registerForm">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="pseudo" formControlName="username" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Nom" formControlName="nom" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Prénom" formControlName="prenom" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" min="10000000" max="99999999" class="form-control" placeholder="Numéro CIN" formControlName="cin" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-address-card"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Adresse" formControlName="adresse" />
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-home"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email"  formControlName="email"/>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password"/>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Roles" formControlName="roles"/>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-8">
+            <div class="custom-control custom-checkbox">
+
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" (click)="SignUp()" [disabled]="!registerForm.valid" class="btn btn-primary btn-block btn-flat">
+              Register
+            </button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+
+
+    <!-- /.form-box -->
+  </div>
+  <!-- /.card -->
+</div>

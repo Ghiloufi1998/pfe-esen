@@ -1,0 +1,37 @@
+
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+       <b>Gérer Agences</b>
+      </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block"[routerLink]="['/Addaggestad']">Ajouter Agence</button>
+        <button type="button" class="btn btn-success btn-lg btn-block"[routerLink]="['/Showaggestad']">Consulter Liste Agences</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        <b>Gérer Matériels</b>
+       </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block" [routerLink]="['/Addmatgestad']">Ajouter Matériel</button>
+        <button type="button" class="btn btn-success btn-lg btn-block"[routerLink]="['/Showmatgestad']">Consulter Liste Matériels</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-header">
+        <b>Gérer Rapport de Réclamations</b>
+       </div>
+      <div class="card-body">
+        <button type="button" class="btn btn-primary btn-lg btn-block" [routerLink]="['/Showraprecgestad']">Consulter Liste Rapports</button>
+        <button type="button" class="btn btn-success btn-lg btn-block"[routerLink]="['/Showrecnowad']">Consulter Liste Réclamations de ma région</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="card-header">
+    Liste des Fournisseurs
+  </div>
+  <div class="card-body">
+
+    <p *ngIf="listefour.length <= 0" class="no-data text-center">Pas du fournisseurs à afficher</p>
+
+    <!-- Employee list -->
+    <table class="table table-bordered" >
+      <thead class="table-success">
+        <tr>
+
+          <th scope="col">Nom d'agence</th>
+          <th scope="col">Responsable</th>
+          <th scope="col">Matricule Fiscale</th>
+          <th scope="col">tel </th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Adresse</th>
+          <th scope="col center">Opérations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let four of listefour; let i = index" [class.active]="i == currentIndex">
+
+          <td>{{four.title}}</td>
+          <td>{{four.responsable}}</td>
+          <td>{{four.matfisc}}</td>
+          <td>{{four.tel}}</td>
+          <td>{{four.email}}</td>
+          <td>{{four.adresse}}</td>
+          <td class="text-center edit-block" >
+            <span class="edit" [routerLink]="['/Modifourgestac/', four.id]">
+              <button type="button" class="btn btn-success btn-sm">Modifier</button>
+            </span>
+
+            <span class="delete" (click)="deleteFour(four, i)">
+              <button type="button" class="btn btn-danger btn-sm">Supprimer</button>
+            </span>
+
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+  <!-- No data message -->
+
